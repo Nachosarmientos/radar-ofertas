@@ -1,0 +1,75 @@
+# ============================================================
+#  RADAR DE OFERTAS · archivo de configuración
+#  Es el único archivo que tienes que editar.
+#  Tras guardar, el radar se regenera solo en unos minutos.
+# ============================================================
+
+# --- Cómo se ve tu página -----------------------------------
+titulo: "Radar de Ofertas"
+subtitulo: "Cooperación internacional y gestión de proyectos"
+color: "#0075C3"          # color principal (hexadecimal)
+idioma: "es"              # es | en
+
+# --- Qué buscar ---------------------------------------------
+# La oferta entra si su título o descripción contiene
+# AL MENOS UNA de estas palabras (no importan tildes ni mayúsculas).
+palabras_clave:
+  - cooperación
+  - técnico de proyectos
+  - coordinador de proyectos
+  - project coordinator
+  - project manager
+  - programme officer
+  - desarrollo internacional
+  - acción humanitaria
+
+# La oferta se descarta si contiene CUALQUIERA de estas.
+excluir:
+  - prácticas
+  - voluntariado
+  - internship
+  - volunteer
+
+# Solo se guardan ofertas publicadas en los últimos N días.
+dias_maximos: 45
+
+# --- Dónde buscar -------------------------------------------
+# Activa o desactiva cada fuente con  activa: true / false
+fuentes:
+
+  # ReliefWeb: el mayor portal de empleo humanitario y de desarrollo.
+  # Necesita un "appname" gratuito: pídelo en
+  # https://apidoc.reliefweb.int/parameters#appname  y pégalo aquí.
+  - nombre: ReliefWeb
+    tipo: reliefweb
+    activa: false
+    appname: "PEGA-AQUI-TU-APPNAME"
+    paises: ["Spain"]       # vacío [] = todos los países
+    limite: 100
+
+  # Cualquier feed RSS o Atom. Tres ideas que funcionan bien:
+  #  1. Google Alerts → crea una alerta (ej. "oferta técnico cooperación")
+  #     → "Mostrar opciones" → Enviar a: "Feed RSS" → copia la URL.
+  #  2. Portales con RSS propio (UN Jobs, Devex, blogs de ONGD…).
+  #  3. Búsquedas de Indeed u otros portales que ofrezcan feed.
+  - nombre: Google Alerts · cooperación
+    tipo: rss
+    activa: false
+    url: "https://www.google.com/alerts/feeds/XXXXXXXX/XXXXXXXX"
+
+  - nombre: Otro feed RSS
+    tipo: rss
+    activa: false
+    url: "https://pega-aqui-la-url-del-feed/rss"
+
+  # Páginas web sin RSS: indica la URL y qué elementos leer
+  # (selectores CSS). Requiere algo de prueba y error.
+  - nombre: Ejemplo web sin RSS
+    tipo: web
+    activa: false
+    url: "https://ejemplo.org/empleo"
+    selector_oferta: "article.oferta"     # cada bloque de oferta
+    selector_titulo: "h3"                 # título dentro del bloque
+    selector_enlace: "a"                  # enlace dentro del bloque
+    selector_entidad: ".entidad"          # opcional
+    selector_lugar: ".lugar"              # opcional

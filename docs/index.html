@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Radar de Ofertas</title>
+<style>
+:root{
+  --brand:#0075C3;
+  --paper:#FFFFFF;--paper-2:#F2F6FA;--ink:#0B2742;--ink-2:#1A3A5C;--ink-3:#5A7189;--line:#DCE5EE;
+  --accent:#C8432F;--accent-soft:#FBE6E1;--ok:#1B6B4A;--ok-soft:#DDF0E7;--on:#fff;
+  --f-display:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --f-body:-apple-system,"Segoe UI",system-ui,sans-serif;
+  --f-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0A1826;--paper-2:#11263B;--ink:#E6F0FA;--ink-2:#C9DCEF;--ink-3:#8FA9C2;--line:#1F3A55;
+  --accent:#F0705C;--accent-soft:#4A1F18;--ok:#5CC79A;--ok-soft:#143A2B;--on:#0A1826;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 var(--f-body)}
+.wrap{max-width:1320px;margin:0 auto;padding:clamp(20px,4vw,48px) clamp(16px,3vw,40px);display:flex;flex-direction:column;gap:28px;min-height:100vh}
+.eyebrow{font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 48px}
+h1{font:400 clamp(44px,7vw,88px)/.95 var(--f-display);margin:8px 0 0;letter-spacing:-.015em;color:var(--brand)}
+.sub{margin:12px 0 0;color:var(--ink-3);max-width:60ch}
+.stats{display:grid;grid-template-columns:repeat(3,auto)}
+.stats div{display:flex;flex-direction:column;gap:6px;padding:0 clamp(12px,2vw,28px);border-left:1px solid var(--line)}
+.stats b{font:400 clamp(36px,4.4vw,56px)/.9 var(--f-display);font-variant-numeric:tabular-nums}
+.stats span{font:10.5px var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.stats .urge b{color:var(--accent)}
+.bar{display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--ink);padding-top:16px}
+.fila{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:13px var(--f-body);padding:6px 13px;border:1px solid var(--line);background:none;color:var(--ink);border-radius:999px;cursor:pointer}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--on);border-color:var(--ink)}
+.chip .n{font:11px var(--f-mono);opacity:.7;margin-left:6px}
+input[type=search]{flex:1 1 260px;max-width:440px;font:14px var(--f-body);padding:8px 16px;border:1px solid var(--ink-3);background:var(--paper);color:var(--ink);border-radius:999px}
+.orden{display:flex;gap:14px;font:12px var(--f-mono);color:var(--ink-3)}
+.orden button{background:none;border:0;padding:2px 0;color:inherit;font:inherit;cursor:pointer;border-bottom:1px solid transparent}
+.orden button[aria-pressed=true]{color:var(--ink);border-bottom-color:var(--ink)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.lista{display:flex;flex-direction:column;flex:1}
+.row{display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:8px clamp(14px,2.4vw,32px);padding:18px 8px;margin-inline:-8px;border-bottom:1px solid var(--line);border-radius:4px}
+.row:hover{background:var(--paper-2)}
+.hoja{display:flex;flex-direction:column;line-height:1}
+.hoja .num{font:400 38px/.9 var(--f-display);font-variant-numeric:tabular-nums}
+.hoja .mes{font:11px var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-top:4px}
+.hoja .lbl{font:10px var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-bottom:4px}
+.hoja.urge .num{color:var(--accent)}
+.t{font:400 clamp(20px,2vw,25px)/1.15 var(--f-display);margin:0;color:var(--ink-2)}
+.t a{color:inherit;text-decoration:none}
+.t a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.m{color:var(--ink-3);font-size:13.5px;margin-top:4px}
+.res{font-size:14px;margin-top:8px;max-width:80ch;color:var(--ink)}
+.tag{display:inline-block;font:10.5px var(--f-mono);letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border:1px solid var(--line);border-radius:4px;margin-left:6px;vertical-align:2px}
+.nueva{font:10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:var(--brand);color:#fff;padding:3px 7px;border-radius:999px;margin-right:8px;vertical-align:4px}
+.side{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.pill{font:500 11px var(--f-mono);white-space:nowrap;color:var(--ink-3)}
+.pill.urge{color:var(--accent)}
+.guardar{background:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font:12px var(--f-body);color:var(--ink);cursor:pointer}
+.guardar[aria-pressed=true]{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.vacio{padding:60px 0;text-align:center;color:var(--ink-3)}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font:11.5px var(--f-mono);color:var(--ink-3);border-top:1px solid var(--line);padding-top:14px}
+footer .ko{color:var(--accent)}
+@media (max-width:720px){
+  .stats{grid-template-columns:repeat(3,1fr);width:100%}.stats div:first-child{border-left:0;padding-left:0}
+  .row{grid-template-columns:64px minmax(0,1fr)}.side{grid-column:2;flex-direction:row;align-items:center;justify-content:flex-start}
+  .hoja .num{font-size:30px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow" id="act"></p>
+      <h1 id="titulo"></h1>
+      <p class="sub" id="sub"></p>
+    </div>
+    <div class="stats">
+      <div><b id="sTotal">0</b><span data-t="vigentes"></span></div>
+      <div><b id="sNuevas">0</b><span data-t="nuevas"></span></div>
+      <div class="urge"><b id="sUrge">0</b><span data-t="cierran"></span></div>
+    </div>
+  </header>
+
+  <section class="bar" aria-label="Filtros">
+    <div class="fila">
+      <input type="search" id="q" autocomplete="off">
+      <div class="orden" role="group">
+        <button data-o="recientes" aria-pressed="true"></button>
+        <button data-o="cierre" aria-pressed="false"></button>
+      </div>
+    </div>
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <main class="lista" id="lista"></main>
+  <footer id="pie"></footer>
+</div>
+
+<script>
+const D = {"titulo": "Radar de Ofertas", "subtitulo": "Cooperación internacional y gestión de proyectos", "idioma": "es", "actualizado": "2026-11-18T12:43:46.009005+00:00", "estado": [], "ofertas": []};
+const T = {
+  es:{vigentes:"Ofertas vigentes",nuevas:"Nuevas · 3 días",cierran:"Cierran en 7 días",buscar:"Buscar por puesto, entidad o lugar…",
+      recientes:"Más recientes",cierre:"Plazo más cercano",todas:"Todas",guardadas:"Guardadas",guardar:"Guardar",guardada:"Guardada",
+      nueva:"Nueva",cierra:"Cierra",publicada:"Publicada",sinFecha:"Sin plazo",hoy:"Cierra hoy",dias:d=>`Cierra en ${d} días`,
+      vacio:"No hay ofertas con estos filtros.",act:f=>`Actualizado ${f}`,fuentes:"Fuentes",error:"sin respuesta",
+      meses:["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"]},
+  en:{vigentes:"Open offers",nuevas:"New · 3 days",cierran:"Closing in 7 days",buscar:"Search by role, organisation or place…",
+      recientes:"Most recent",cierre:"Closing soonest",todas:"All",guardadas:"Saved",guardar:"Save",guardada:"Saved",
+      nueva:"New",cierra:"Closes",publicada:"Posted",sinFecha:"No deadline",hoy:"Closes today",dias:d=>`Closes in ${d} days`,
+      vacio:"No offers match these filters.",act:f=>`Updated ${f}`,fuentes:"Sources",error:"no response",
+      meses:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]}
+}[D.idioma] || {};
+
+/* "Guardadas" vive en el navegador de cada persona */
+const KEY = "radar-guardadas";
+let guardadas = new Set();
+try { guardadas = new Set(JSON.parse(localStorage.getItem(KEY) || "[]")); } catch(e) {}
+const persistir = () => { try { localStorage.setItem(KEY, JSON.stringify([...guardadas])); } catch(e) {} };
+
+const hoy = new Date(); hoy.setHours(0,0,0,0);
+const dias = iso => iso ? Math.round((new Date(iso).setHours(0,0,0,0) - hoy) / 864e5) : null;
+const esc = s => (s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = iso => { const d = new Date(iso); return `${d.getDate()} ${T.meses[d.getMonth()]} ${d.getFullYear()}`; };
+
+const O = D.ofertas.map(o => ({...o, dc: dias(o.cierre), nueva: (Date.now() - new Date(o.vista)) < 3*864e5,
+  txt: [o.titulo,o.entidad,o.lugar,o.resumen,o.fuente].join(" ").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase()}));
+
+let filtro = "todas", orden = "recientes", q = "";
+
+document.getElementById("titulo").textContent = D.titulo;
+document.getElementById("sub").textContent = D.subtitulo;
+document.getElementById("act").textContent = T.act(fmt(D.actualizado));
+document.querySelectorAll("[data-t]").forEach(el => el.textContent = T[el.dataset.t]);
+document.getElementById("q").placeholder = T.buscar;
+document.querySelectorAll("[data-o]").forEach(b => b.textContent = T[b.dataset.o]);
+document.getElementById("sTotal").textContent = O.length;
+document.getElementById("sNuevas").textContent = O.filter(o => o.nueva).length;
+document.getElementById("sUrge").textContent = O.filter(o => o.dc !== null && o.dc >= 0 && o.dc <= 7).length;
+
+function chips(){
+  const fuentes = [...new Set(O.map(o => o.fuente))];
+  const items = [["todas",T.todas,O.length], ...fuentes.map(f => [f,f,O.filter(o=>o.fuente===f).length]),
+                 ["__g",T.guardadas,O.filter(o=>guardadas.has(o.id)).length]];
+  document.getElementById("chips").innerHTML = items.map(([k,l,n]) =>
+    `<button class="chip" data-f="${esc(k)}" aria-pressed="${filtro===k}">${esc(l)}<span class="n">${n}</span></button>`).join("");
+}
+
+function pinta(){
+  const qq = q.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
+  let v = O.filter(o => (filtro==="todas" || (filtro==="__g" ? guardadas.has(o.id) : o.fuente===filtro)) && (!qq || o.txt.includes(qq)));
+  if (orden === "cierre") v.sort((a,b) => (a.dc ?? 1e9) - (b.dc ?? 1e9));
+  const L = document.getElementById("lista");
+  if (!v.length){ L.innerHTML = `<p class="vacio">${T.vacio}</p>`; return; }
+  L.innerHTML = v.map(o => {
+    const ref = o.cierre || o.publicada || o.vista, d = new Date(ref);
+    const urge = o.dc !== null && o.dc <= 7;
+    const pill = o.dc === null ? T.sinFecha : o.dc <= 0 ? T.hoy : T.dias(o.dc);
+    const meta = [o.entidad, o.lugar].filter(Boolean).map(esc).join(" · ");
+    const g = guardadas.has(o.id);
+    return `<article class="row">
+      <div class="hoja ${urge?"urge":""}"><span class="lbl">${o.cierre?T.cierra:T.publicada}</span>
+        <span class="num">${d.getDate()}</span><span class="mes">${T.meses[d.getMonth()]}</span></div>
+      <div><h2 class="t">${o.nueva?`<span class="nueva">${T.nueva}</span>`:""}<a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.titulo)}</a></h2>
+        <div class="m">${meta}<span class="tag">${esc(o.fuente)}</span></div>
+        ${o.resumen?`<p class="res">${esc(o.resumen.slice(0,240))}${o.resumen.length>240?"…":""}</p>`:""}</div>
+      <div class="side"><span class="pill ${urge?"urge":""}">${pill}</span>
+        <button class="guardar" data-id="${o.id}" aria-pressed="${g}">${g?"★ "+T.guardada:"☆ "+T.guardar}</button></div>
+    </article>`;
+  }).join("");
+}
+
+document.getElementById("chips").onclick = e => { const b = e.target.closest("[data-f]"); if(!b) return; filtro = b.dataset.f; chips(); pinta(); };
+document.querySelector(".orden").onclick = e => { const b = e.target.closest("[data-o]"); if(!b) return; orden = b.dataset.o;
+  document.querySelectorAll("[data-o]").forEach(x => x.setAttribute("aria-pressed", x===b)); pinta(); };
+document.getElementById("q").oninput = e => { q = e.target.value; pinta(); };
+document.getElementById("lista").onclick = e => { const b = e.target.closest(".guardar"); if(!b) return;
+  guardadas.has(b.dataset.id) ? guardadas.delete(b.dataset.id) : guardadas.add(b.dataset.id); persistir(); chips(); pinta(); };
+
+document.getElementById("pie").innerHTML = `<span>${T.fuentes}: ${D.estado.map(s =>
+  s.ok ? `${esc(s.fuente)} (${s.n})` : `<span class="ko">${esc(s.fuente)} — ${T.error}</span>`).join(" · ") || "—"}</span>
+  <span>Radar de Ofertas · plantilla libre</span>`;
+chips(); pinta();
+</script>
+</body>
+</html>
