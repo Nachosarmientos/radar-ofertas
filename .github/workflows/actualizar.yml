@@ -10,6 +10,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: radar
+  cancel-in-progress: false
+
 jobs:
   radar:
     runs-on: ubuntu-latest
@@ -27,4 +31,5 @@ jobs:
           git config user.email "radar-bot@users.noreply.github.com"
           git add docs data
           git diff --cached --quiet || git commit -m "Radar actualizado $(date -u +%F)"
+          git pull --rebase origin main
           git push
