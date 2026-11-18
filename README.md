@@ -32,9 +32,12 @@ Desde ahí se actualiza cada mañana y cada vez que guardes cambios en `config.y
 
 | Tipo | Para qué | Qué necesitas |
 |---|---|---|
-| `reliefweb` | Empleo humanitario y de desarrollo de todo el mundo | Un *appname* gratuito: se pide en [apidoc.reliefweb.int](https://apidoc.reliefweb.int/parameters#appname) |
+| `enlaces` | Páginas de empleo de organizaciones y portales | La URL y un `patron`: el trozo que comparten los enlaces de las ofertas (ej. `/empleo/ofertas/`) |
 | `rss` | Cualquier feed RSS/Atom | La URL del feed |
-| `web` | Páginas sin RSS | La URL y los selectores CSS de cada oferta |
+| `fiiapp` | La tabla de ofertas de FIIAPP | Nada |
+| `reliefweb` | Empleo humanitario y de desarrollo de todo el mundo | Un *appname* gratuito: se pide en [apidoc.reliefweb.int](https://apidoc.reliefweb.int/parameters#appname) |
+
+**No se pueden leer sin navegador** (bloquean programas o cargan con JavaScript): InfoJobs, Indeed, Hacesfalta, Idealist, ReliefWeb web, Médicos del Mundo, Ayuda en Acción, ICMPD, CEAR, Cepaim y UN Tourism. LinkedIn tampoco: sus condiciones prohíben leerlo con programas.
 
 **Truco: Google Alerts como fuente.** En [google.com/alerts](https://www.google.com/alerts) crea una alerta (ej. *"oferta técnico de proyectos cooperación"*),
 pulsa *Mostrar opciones → Enviar a: Feed RSS*, crea la alerta y copia la URL del icono RSS. Pégala en una fuente `tipo: rss`.
