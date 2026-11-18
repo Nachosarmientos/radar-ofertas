@@ -148,6 +148,23 @@ def tarjeta(a, patron, max_len=450):
     return mejor
 
 
+FECHA = r"(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})"
+PUBLICADA = re.compile(r"publicad[ao][^0-9]{0,15}" + FECHA, re.I)
+CIERRE = re.compile(r"(?:hasta|plazo|cierre|l[ií]mite|deadline|closing)[^0-9]{0,25}" + FECHA, re.I)
+CONVOCA = re.compile(r"(?:convoca|entidad|organizaci[oó]n)\s*:\s*([^|·\n]{3,80}?)(?:\s{2,}|$|\s+(?:publicad|abierta|plazo))", re.I)
+
+
+def fecha_en(rx, texto):
+    m = rx.search(texto)
+    if not m:
+        return None
+    d, mes, a = map(int, m.groups())
+    try:
+        return datetime(a, mes, d, 23, 59, tzinfo=timezone.utc)
+    except ValueError:
+        return None
+
+
 FECHA_COLA = re.compile(r"\s+\d{1,2} de [a-záéíóú]+,? \d{4}\s*$", re.I)
 
 
@@ -177,8 +194,13 @@ def lee_enlaces(f):
         if len(titulo) < 8 or any(d in normaliza(contexto) for d in descartar):
             continue
         vistos.add(url)
-        yield oferta(f["nombre"], titulo, url, entidad=f.get("entidad", ""),
-                     lugar=f.get("lugar", ""), resumen=contexto if contexto != titulo else "")
+        entidad = f.get("entidad", "")
+        m = CONVOCA.search(contexto)
+        if m:
+            entidad = m.group(1).strip()
+        yield oferta(f["nombre"], titulo, url, entidad=entidad, lugar=f.get("lugar", ""),
+                     publicada=fecha_en(PUBLICADA, contexto), cierre=fecha_en(CIERRE, contexto),
+                     resumen=contexto if contexto != titulo else "")
 
 
 def lee_fiiapp(f):
