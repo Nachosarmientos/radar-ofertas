@@ -289,11 +289,13 @@ def main():
     limite = AHORA - timedelta(days=int(cfg.get("dias_maximos", 45)))
     vigentes = {}
     for k, o in previas.items():
-        ref = o.get("publicada") or o.get("vista")
-        if ref and datetime.fromisoformat(ref) < limite:
-            continue
-        if o.get("cierre") and datetime.fromisoformat(o["cierre"]) < AHORA - timedelta(days=1):
-            continue
+        if o.get("cierre"):  # con plazo: vale hasta que cierra
+            if datetime.fromisoformat(o["cierre"]) < AHORA - timedelta(days=1):
+                continue
+        else:                # sin plazo: vale N días desde que se publicó o se vio
+            ref = o.get("publicada") or o.get("vista")
+            if ref and datetime.fromisoformat(ref) < limite:
+                continue
         vigentes[k] = o
 
     DATOS.parent.mkdir(exist_ok=True)
