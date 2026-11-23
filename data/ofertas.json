@@ -23,18 +23,6 @@
   "resumen": "Líbano Coordinación Proyecto AECID Líbano (Experto/a en Enfoque de Género) Publicada 13/11/2026 . Abierta hasta 06/12/2026 Convoca: Save the Children",
   "vista": "2026-11-18T13:26:10.660661+00:00"
  },
- "a8c2bf4a7aea": {
-  "id": "a8c2bf4a7aea",
-  "fuente": "La Coordinadora",
-  "titulo": "TÉCNICO/A ESPECIALISTA DE PROYECTOS DE COOPERACIÓN",
-  "url": "https://coordinadoraongd.org/empleo/ofertas/tecnico-a-especialista-de-proyectos-de-cooperacion/",
-  "entidad": "UNRWA",
-  "lugar": "",
-  "publicada": "2026-11-11T23:59:00+00:00",
-  "cierre": "2026-11-22T23:59:00+00:00",
-  "resumen": "España TÉCNICO/A ESPECIALISTA DE PROYECTOS DE COOPERACIÓN Publicada 11/11/2026 . Abierta hasta 22/11/2026 Convoca: UNRWA",
-  "vista": "2026-11-18T13:26:10.660661+00:00"
- },
  "e437ba6c239a": {
   "id": "e437ba6c239a",
   "fuente": "La Coordinadora",
@@ -167,18 +155,6 @@
   "resumen": "Asunción 26_2026_11_Externa_Técnica/o_Proyectos_Cooperación_Expatriada_Paraguay Area de Cooperación Internacional Híbrido Inscríbete ahora",
   "vista": "2026-11-18T13:26:10.660661+00:00"
  },
- "4a34db55ad96": {
-  "id": "4a34db55ad96",
-  "fuente": "Cruz Roja",
-  "titulo": "Técnico/a Captación y Alianzas con Empresas",
-  "url": "https://cruzroja.epreselec.com/Ofertas/Ofertas.aspx#tecnico-captacion-y-alianzas-con-empresas-16-de-noviembre-2026",
-  "entidad": "Cruz Roja Española",
-  "lugar": "",
-  "publicada": null,
-  "cierre": null,
-  "resumen": "Técnico/a Captación y Alianzas con Empresas 16 de noviembre, 2026",
-  "vista": "2026-11-18T13:26:10.660661+00:00"
- },
  "14a195f0bff3": {
   "id": "14a195f0bff3",
   "fuente": "Cruz Roja",
@@ -189,18 +165,6 @@
   "publicada": null,
   "cierre": null,
   "resumen": "Responsable Gestió Subvencions - Barcelona 9 de noviembre, 2026",
-  "vista": "2026-11-18T13:26:10.660661+00:00"
- },
- "01c77dc30de2": {
-  "id": "01c77dc30de2",
-  "fuente": "Cruz Roja",
-  "titulo": "Técnica/o de Captación y Alianzas",
-  "url": "https://cruzroja.epreselec.com/Ofertas/Ofertas.aspx#tecnica-de-captacion-y-alianzas-5-de-octubre-2026",
-  "entidad": "Cruz Roja Española",
-  "lugar": "",
-  "publicada": null,
-  "cierre": null,
-  "resumen": "Técnica/o de Captación y Alianzas 5 de octubre, 2026",
   "vista": "2026-11-18T13:26:10.660661+00:00"
  },
  "798f6e7fa71c": {
@@ -299,22 +263,10 @@
   "resumen": "Técnico/a Captación de Fondos Collado Villalba y Sierra Oeste 20 de noviembre, 2026",
   "vista": "2026-11-20T15:24:53.895212+00:00"
  },
- "f21a159bdea0": {
-  "id": "f21a159bdea0",
-  "fuente": "PCDN",
-  "titulo": "Program Manager, Colorado Common Cause Full-time Full-time On-site Colorado 2 days",
-  "url": "https://jobs.pcdn.global/jobs/program-manager-colorado-4320fcea",
-  "entidad": "",
-  "lugar": "",
-  "publicada": null,
-  "cierre": null,
-  "resumen": "",
-  "vista": "2026-11-21T14:38:24.817296+00:00"
- },
  "406f52f910ce": {
   "id": "406f52f910ce",
   "fuente": "PCDN",
-  "titulo": "G Program Officer, Maternal and Child Survival & Women's Health Research & Analytics Gates Foundation Full-time Full-time On-site Seattle, WA, United States 2 days",
+  "titulo": "G Program Officer, Maternal and Child Survival & Women's Health Research & Analytics Gates Foundation Full-time Full-time On-site Seattle, WA, United States 4 days",
   "url": "https://jobs.pcdn.global/jobs/program-officer-maternal-and-child-survival-women-s-health-research-analytics-b485faf9",
   "entidad": "",
   "lugar": "",
@@ -326,7 +278,7 @@
  "a1ef3c9735ef": {
   "id": "a1ef3c9735ef",
   "fuente": "PCDN",
-  "titulo": "G Senior Program Officer, Program Communications Gates Foundation Full-time Full-time On-site Seattle, WA, United States 2 days",
+  "titulo": "G Senior Program Officer, Program Communications Gates Foundation Full-time Full-time On-site Seattle, WA, United States 4 days",
   "url": "https://jobs.pcdn.global/jobs/senior-program-officer-program-communications-1f792deb",
   "entidad": "",
   "lugar": "",
@@ -334,5 +286,41 @@
   "cierre": null,
   "resumen": "",
   "vista": "2026-11-22T14:32:22.450502+00:00"
+ },
+ "4a4257f845e5": {
+  "id": "4a4257f845e5",
+  "fuente": "La Coordinadora",
+  "titulo": "Coordinación proyecto AECID Níger",
+  "url": "https://coordinadoraongd.org/empleo/ofertas/coordinacion-proyecto-aecid-niger/",
+  "entidad": "Save the Children",
+  "lugar": "",
+  "publicada": "2026-11-23T23:59:00+00:00",
+  "cierre": "2026-12-22T23:59:00+00:00",
+  "resumen": "Niger Coordinación proyecto AECID Níger Publicada 23/11/2026 . Abierta hasta 22/12/2026 Convoca: Save the Children",
+  "vista": "2026-11-23T18:03:43.636043+00:00"
+ },
+ "a0d40e0cb5d4": {
+  "id": "a0d40e0cb5d4",
+  "fuente": "La Coordinadora",
+  "titulo": "Coordinador/a proyectos de educación CESAL Haití",
+  "url": "https://coordinadoraongd.org/empleo/ofertas/coordinador-a-proyectos-de-educacion-cesal-haiti/",
+  "entidad": "CESAL",
+  "lugar": "",
+  "publicada": "2026-11-23T23:59:00+00:00",
+  "cierre": "2026-12-10T23:59:00+00:00",
+  "resumen": "HAITÍ Coordinador/a proyectos de educación CESAL Haití Publicada 23/11/2026 . Abierta hasta 10/12/2026 Convoca: CESAL",
+  "vista": "2026-11-23T18:03:43.636043+00:00"
+ },
+ "4a402360859b": {
+  "id": "4a402360859b",
+  "fuente": "PCDN",
+  "titulo": "Program Manager, Cloud Partners Anthropic On-site San Francisco, CA | New York City, NY 22 hours",
+  "url": "https://jobs.pcdn.global/jobs/program-manager-cloud-partners-3023326c",
+  "entidad": "",
+  "lugar": "",
+  "publicada": null,
+  "cierre": null,
+  "resumen": "",
+  "vista": "2026-11-23T18:03:43.636043+00:00"
  }
 }
