@@ -23,18 +23,6 @@
   "resumen": "Líbano Coordinación Proyecto AECID Líbano (Experto/a en Enfoque de Género) Publicada 13/11/2026 . Abierta hasta 06/12/2026 Convoca: Save the Children",
   "vista": "2026-11-18T13:26:10.660661+00:00"
  },
- "8e66665c7af0": {
-  "id": "8e66665c7af0",
-  "fuente": "FIIAPP",
-  "titulo": "Técnico/a Jurídico Proyectos",
-  "url": "https://www.fiap.gob.es/wp-content/uploads/2026/11/TdR-741-TC.-Juridico-Proyectos-DEF.pdf",
-  "entidad": "FIIAPP",
-  "lugar": "Madrid",
-  "publicada": "2026-11-11T23:59:00+00:00",
-  "cierre": "2026-11-26T23:59:00+00:00",
-  "resumen": "OE/13830/2026 (REF. 741)",
-  "vista": "2026-11-18T13:26:10.660661+00:00"
- },
  "6d962b9f477e": {
   "id": "6d962b9f477e",
   "fuente": "AEFundraising",
@@ -263,18 +251,6 @@
   "resumen": "Personal Técnico de Prospección Laboral y Cooperación Empresarial Tudela 25 de noviembre, 2026",
   "vista": "2026-11-25T17:10:54.300663+00:00"
  },
- "9c6ee3092249": {
-  "id": "9c6ee3092249",
-  "fuente": "PCDN",
-  "titulo": "Senior Program Officer, State Advocacy–Texas and multistate, U.S. Program Gates Foundation Full-time Full-time On-site Washington, DC, United States 2 days",
-  "url": "https://jobs.pcdn.global/jobs/senior-program-officer-state-advocacy-texas-and-multistate-u-s-program-5f1acf43",
-  "entidad": "",
-  "lugar": "",
-  "publicada": null,
-  "cierre": null,
-  "resumen": "",
-  "vista": "2026-11-26T16:51:53.233862+00:00"
- },
  "d3b52b24a253": {
   "id": "d3b52b24a253",
   "fuente": "UAM Oficina Solidaria",
@@ -290,7 +266,7 @@
  "64c00fe8f14e": {
   "id": "64c00fe8f14e",
   "fuente": "PCDN",
-  "titulo": "Senior Program Officer, Partnerships EMEEA (LTE until 31 December 2027) Gates Foundation Full-time Full-time On-site Berlin, Berlin, Germany 1 day",
+  "titulo": "Senior Program Officer, Partnerships EMEEA (LTE until 31 December 2027) Gates Foundation Full-time Full-time On-site Berlin, Berlin, Germany 2 days",
   "url": "https://jobs.pcdn.global/jobs/senior-program-officer-partnerships-emeea-lte-until-31-december-2027-0df884ae",
   "entidad": "",
   "lugar": "",
@@ -322,5 +298,29 @@
   "cierre": null,
   "resumen": "Monitor/a Proyecto Caixa Proinfancia 27 de noviembre, 2026",
   "vista": "2026-11-27T16:38:03.467196+00:00"
+ },
+ "48055bade579": {
+  "id": "48055bade579",
+  "fuente": "PCDN",
+  "titulo": "Policy Program Manager Karya On-site Mumbai 1 day",
+  "url": "https://jobs.pcdn.global/jobs/policy-program-manager-dcdfcefa",
+  "entidad": "",
+  "lugar": "",
+  "publicada": null,
+  "cierre": null,
+  "resumen": "",
+  "vista": "2026-11-28T15:29:07.120777+00:00"
+ },
+ "a52acc70c2e9": {
+  "id": "a52acc70c2e9",
+  "fuente": "PCDN",
+  "titulo": "Senior Program Officer, Wu’n Sina Sinru Project Lead [BENINESE NATIONALS ONLY] Center for Civilians in Conflict On-site Parakou, Parakou, Benin 1 day",
+  "url": "https://jobs.pcdn.global/jobs/senior-program-officer-wu-n-sina-sinru-project-lead-beninese-nationals-only-8e87a82d",
+  "entidad": "",
+  "lugar": "",
+  "publicada": null,
+  "cierre": null,
+  "resumen": "",
+  "vista": "2026-11-28T15:29:07.120777+00:00"
  }
 }
